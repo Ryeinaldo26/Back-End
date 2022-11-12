@@ -32,10 +32,43 @@
             <input type="number" maxlength="3" class="border border-dark rounded-2 col-6" placeholder="Masukkan Nilai UAS Anda" id="uas"><br><br>
             <button class="btn btn-primary col-4" id="submit">Submit</button>
             <button class="btn btn-primary col-4" id="reset">Reset</button><br><br>
-            <p>Nilai Huruf : </p>
-            <span id="akhir"></span>
+            <p>Nilai Huruf : 
+                <span id="nilai_akhir"></span> 
+            </p>
        </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', e => {
+            console.log(`Document is ready!`);
+        });
+        let submit = document.getElementById("submit")
+            submit.onclick = function(){
+                var uts = document.getElementById("uts").value;
+                var tugas = document.getElementById("tugas").value;
+                var uas = document.getElementById("uas").value;
+                var akhir = (uts*0.3)+(tugas*0.4)+(uas*0.3);
+                if (akhir>79.9999) {
+                    let nilai = ("A")
+                    document.getElementById("nilai_akhir").innerHTML = nilai
+                }
+                else if (akhir>69.9999) {
+                    let nilai = ("B")
+                    document.getElementById("nilai_akhir").innerHTML = nilai
+                }
+                else if (akhir>59.9999) {
+                    let nilai = ("C")
+                    document.getElementById("nilai_akhir").innerHTML = nilai
+                }
+                else if (akhir>39.9999) {
+                    let nilai = ("D")
+                    document.getElementById("nilai_akhir").innerHTML = nilai
+                }
+                else if (akhir<40) {
+                    let nilai = ("E")
+                    document.getElementById("nilai_akhir").innerHTML = nilai
+                }
+            }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
